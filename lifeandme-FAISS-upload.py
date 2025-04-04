@@ -32,7 +32,7 @@ def upload_html():
 
     print(split_documents[0].metadata)
 
-    embeddings = OpenAIEmbeddings(base_url="https://api.avalai.ir/v1", api_key="aa-mom4ge07aOt9jqa70NYPvZLvHiUUMg2ip89VgoeDWHglsKM8")
+    embeddings = OpenAIEmbeddings(base_url="https://api.openai.com/v1/", api_key="api_key")
     db = FAISS.from_documents(split_documents, embeddings)
     
     db.save_local("faiss_index")
@@ -50,7 +50,7 @@ def faiss_query():
 
     
 
-    embeddings = OpenAIEmbeddings(base_url="https://api.avalai.ir/v1", api_key="aa-mom4ge07aOt9jqa70NYPvZLvHiUUMg2ip89VgoeDWHglsKM8")
+    embeddings = OpenAIEmbeddings(base_url="https://api.openai.com/v1/", api_key="api_key")
     new_db = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
 
     
