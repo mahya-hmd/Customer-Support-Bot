@@ -41,9 +41,9 @@ def query(question, chat_history):
     """
 
     chat_history = build_chat_history(chat_history)
-    embeddings = OpenAIEmbeddings(base_url="https://api.avalai.ir/v1", api_key="aa-mom4ge07aOt9jqa70NYPvZLvHiUUMg2ip89VgoeDWHglsKM8")
+    embeddings = OpenAIEmbeddings(base_url="https://api.openai.com/v1/", api_key="api_key")
     new_db = FAISS.load_local("faiss_index" , embeddings , allow_dangerous_deserialization=True)
-    llm = ChatOpenAI(model_name = 'gpt-4o', temperature=0,  base_url="https://api.avalai.ir/v1", api_key="aa-mom4ge07aOt9jqa70NYPvZLvHiUUMg2ip89VgoeDWHglsKM8") 
+    llm = ChatOpenAI(model_name = 'gpt-4o', temperature=0,  base_url="https://api.openai.com/v1/", api_key="api_key") 
     
 
     condense_question_system_template = (
